@@ -1,0 +1,18 @@
+﻿<script type="text/javascript">
+
+</script>
+
+
+<div class="_menu">
+    <div class="_menu_left">
+        <img class="menu_img" src="~/Content/Images/menu/icon-guquan.png" />
+        <div class="_text">股权关系</div>
+        @Ajax.ActionLink(" ", "StockRights", "StockRights", null, new AjaxOptions() { UpdateTargetId = "contentDiv" }, new { @class = "_in" })
+    </div>
+    <div class="_menu_right">
+        <img class="menu_img" src="~/Content/Images/menu/icon-baobiao.png" />
+        <div class="_text">经营报表</div>
+        @Ajax.ActionLink(" ", "CompanyReport", "Report", null, new AjaxOptions() { UpdateTargetId = "contentDiv" }, new { @class = "_in" })
+    </div>
+</div>
+<div style="background:#5EB0FA; height:35%; left:0px; bottom:0px; position:absolute; width:100%; z-index:-1;"></div>

@@ -1,0 +1,175 @@
+﻿@*@using Sugon.CompanyRelation.Web.Models.StockRights;
+@model CompanyDetailViewModel*@
+
+<script type="text/javascript">
+    $(document).ready(function (e) {
+        $("._tab ul").children(":first").css({ "border-bottom-color": "#fff", "background": "#fff" });
+        $("._tab ul").children().click(function () {
+            $(this).css({ "border-bottom-color": "#fff", "background": "#fff" });
+            $(this).siblings().css({ "border-bottom-color": "#dcdcdc", "background": "#f8f8f8" });
+        });
+    });
+</script>
+<div style="border:1px solid #c7c7c7;height:100%;">
+    <div class="_tab">
+        <ul style="padding:0px; margin:0px;">
+            <li>@Ajax.ActionLink("资金日报", "DailyReport", "Report", null, new AjaxOptions() { UpdateTargetId = "DivReport" }, new { @class = "lia" })</li>
+            <li><a href="javascript:void(0)" onclick="DisplayInfoBlock('ShareholderInfo')" class="lia">资金月报</a></li>
+            <li><a href="javascript:void(0)" onclick="DisplayInfoBlock('ManagerInfo')" class="lia">开立银行承兑汇票</a></li>
+            <li><a href="javascript:void(0)" onclick="DisplayInfoBlock('InvestmentInfo')" class="lia">收到承兑汇票</a></li>
+            <li><a href="javascript:void(0)" onclick="DisplayInfoBlock('InvestmentInfo')" class="lia">银行贷款</a></li>
+        </ul>
+    </div>
+    <div id="DivReport" style="padding:10px;">
+        <table id="TableCompanyInfo" class="formTable">
+            <tr><td colspan="6">上期资金</td></tr>
+            <tr>
+                <td align="right" width="10%"><label>上期资金余额：</label></td>
+                <td width="20%">
+                    <input type="text" class="form-control" />
+                </td>
+                <td align="right" width="10%"><label>上日填报金额：</label></td>
+                <td width="20%">
+                    <input type="text" class="form-control" />
+                </td>
+                <td align="right" width="10%"><label>按照本日汇率调整金额：</label></td>
+                <td width="30%">
+                    <input type="text" class="form-control" />
+                </td>
+            </tr>
+        </table>
+        <br />
+        <table id="TableCompanyInfo" class="formTable">
+            <tr><td colspan="6">经营活动流入</td></tr>
+            <tr>
+                <td align="right" width="10%"><label>外部客户回款：</label></td>
+                <td width="20%">
+                    <input type="text" class="form-control" />
+                </td>
+                <td align="right" width="10%"><label>集团内客户回款：</label></td>
+                <td width="20%">
+                    <input type="text" class="form-control" />
+                </td>
+                <td align="right" width="10%"><label>收到的税费返还款：</label></td>
+                <td width="30%">
+                    <input type="text" class="form-control" />
+                </td>
+            </tr>
+            <tr>
+                <td align="right"><label>往来收到的现金：</label></td>
+                <td>
+                    <input type="text" class="form-control" />
+                </td>
+                <td align="right"><label>保证金收到的现金：</label></td>
+                <td>
+                    <input type="text" class="form-control" />
+                </td>
+                <td align="right"><label>收回保函保证金：</label></td>
+                <td>
+                    <input type="text" class="form-control" />
+                </td>
+            </tr>
+            <tr>
+                <td align="right"><label>利息收入收到现金：</label></td>
+                <td>
+                    <input type="text" class="form-control" />
+                </td>
+                <td align="right"><label>市场活动费收到的现金：</label></td>
+                <td>
+                    <input type="text" class="form-control" />
+                </td>
+                <td align="right"><label>专项课题经费收到的现金：</label></td>
+                <td>
+                    <input type="text" class="form-control" />
+                </td>
+            </tr>
+            <tr>
+                <td align="right"><label>政府补贴收入：</label></td>
+                <td>
+                    <input type="text" class="form-control" />
+                </td>
+                <td align="right"><label>赔款收到的现金：</label></td>
+                <td>
+                    <input type="text" class="form-control" />
+                </td>
+                <td align="right"><label>处理废旧物资收到现金（不包括二手固定资产）：</label></td>
+                <td>
+                    <input type="text" class="form-control" />
+                </td>
+            </tr>
+            <tr>
+                <td align="right"><label>供应商赞助费：</label></td>
+                <td>
+                    <input type="text" class="form-control" />
+                </td>
+                <td align="right"><label>收到返修返点款：</label></td>
+                <td>
+                    <input type="text" class="form-control" />
+                </td>
+                <td align="right"><label>其他经营性收款：</label></td>
+                <td>
+                    <input type="text" class="form-control" />
+                </td>
+            </tr>
+        </table>
+        <br />
+        <table id="TableCompanyInfo" class="formTable">
+            <tr><td colspan="6">经营活动流出</td></tr>
+            <tr>
+                <td align="right" width="10%"><label>外部供应商采购支出：</label></td>
+                <td width="20%">
+                    <input type="text" class="form-control" />
+                </td>
+                <td align="right" width="10%"><label>集团内供应商采购支出：</label></td>
+                <td width="20%">
+                    <input type="text" class="form-control" />
+                </td>
+                <td align="right" width="10%"><label>与员工相关的支出（工资/五险一金等）：</label></td>
+                <td width="30%">
+                    <input type="text" class="form-control" />
+                </td>
+            </tr>
+            <tr>
+                <td align="right"><label>支付的各项税费：</label></td>
+                <td>
+                    <input type="text" class="form-control" />
+                </td>
+                <td align="right"><label>往来支付的现金：</label></td>
+                <td>
+                    <input type="text" class="form-control" />
+                </td>
+                <td align="right"><label>保证金支付的现金：</label></td>
+                <td>
+                    <input type="text" class="form-control" />
+                </td>
+            </tr>
+            <tr>
+                <td align="right"><label>保函保证金支付的的现金：</label></td>
+                <td>
+                    <input type="text" class="form-control" />
+                </td>
+                <td align="right"><label>费用支付的的现金：</label></td>
+                <td>
+                    <input type="text" class="form-control" />
+                </td>
+                <td align="right"><label>专项课题经费支付的现金：</label></td>
+                <td>
+                    <input type="text" class="form-control" />
+                </td>
+            </tr>
+            <tr>
+                <td align="right"><label>捐赠支付的的现金：</label></td>
+                <td>
+                    <input type="text" class="form-control" />
+                </td>
+                <td align="right"><label>其他经营性支付：</label></td>
+                <td>
+                    <input type="text" class="form-control" />
+                </td>
+                <td align="right"></td>
+                <td>
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>

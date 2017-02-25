@@ -1,0 +1,52 @@
+﻿@using Sugon.CompanyRelation.Web.Models.StockRights
+@model StockRightsViewModel
+
+<script type="text/javascript">
+    function ShowLowLevelCompany(companyId) {
+        if ($("#" + companyId).is(":visible")) {
+            $("#" + companyId).hide();     //如果元素为显现,则将其隐藏
+        }
+        else {
+            $("#" + companyId).show();
+        }
+    }
+
+    $(".liMenu").next().show(); // 默认显示二级菜单
+</script>
+
+<div class="_leftMenu">
+    @*<div class="liMenu">
+            @Ajax.ActionLink("+新建公司信息", "CreateCompany", "StockRights", new AjaxOptions() { UpdateTargetId = "TdCompanyDetail" })
+        </div>*@
+    @foreach (KeyValuePair<string, string> item in Model.CompanyList)
+    {
+        <div class="liMenu">
+            <div class="liMenuLink">@Ajax.ActionLink(item.Value, "Reports", new { companyId = item.Key }, new AjaxOptions() { UpdateTargetId = "TdCompanyDetail" }, new { @title = item.Value })</div>
+            <div class="liMenuIcon"><a href="javascript:void(0)" onclick="ShowLowLevelCompany(@item.Key)">&gt;</a></div>
+        </div>
+        <div id="@item.Key" class="subMenu">
+            @foreach (Dictionary<string, string> subCom in Model.SubCompanyList)
+            {
+                if (subCom["COMPANY"].Equals(item.Key))
+                {
+                    <div>
+                        <div class="subMenuLink">@Ajax.ActionLink(subCom["BUTXT"], "Reports", new { companyId = subCom["BUKRS"] }, new AjaxOptions() { UpdateTargetId = "TdCompanyDetail" }, new { @title = "'" + subCom["BUTXT"] + "'" })</div>
+                        <div class="subMenuIcon"><a href="javascript:void(0)" onclick="ShowLowLevelCompany(@subCom["BUKRS"])">&gt;</a></div>
+                    </div>
+                    <div id="@subCom["BUKRS"]" class="subMenu2">
+                        @foreach (Dictionary<string, string> subCom2 in Model.SubCompanyList)
+                        {
+                            if (subCom2["COMPANY"].Equals(subCom["BUKRS"]))
+                            {
+                                <div class="subMenuLink2">@Ajax.ActionLink(subCom2["BUTXT"], "Reports", new { companyId = subCom2["BUKRS"] }, new AjaxOptions() { UpdateTargetId = "TdCompanyDetail" }, new { @title = "'" + subCom2["BUTXT"] + "'" })</div>
+                            }
+                        }
+                    </div>
+                }
+            }
+        </div>
+    }
+</div>
+<div id="TdCompanyDetail" class="rightContainer">
+    @*@Html.Action("FirstCompanyDetail", new { companyId = Model.CompanyList[0].Key })*@
+</div>

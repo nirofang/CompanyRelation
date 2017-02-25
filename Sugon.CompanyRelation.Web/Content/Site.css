@@ -1,0 +1,240 @@
+﻿html{
+    padding:0px;
+    margin:0px;
+    height:100%;
+}
+
+body {
+    /*padding-top: 50px;
+    padding-bottom: 20px;*/
+    padding:0px;
+    margin:0px;
+    min-width:1024px;
+    height:100%;
+	background:#EFF6FE;
+    /*background-color:#edf7fc;*/
+}
+.FooterDiv{
+    text-align:center;
+    width: 100%;
+    /*position: fixed;*/
+    bottom: 5px;
+}
+
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    margin-top:50px;
+    padding-top: 5px;
+    padding-left: 5px;
+    padding-right: 5px;
+    height:100%;
+}
+
+/* Override the default bootstrap behavior where horizontal description lists 
+   will truncate terms that are too long to fit in the left column 
+*/
+.dl-horizontal dt {
+    white-space: normal;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select,
+textarea {
+    max-width: 280px;
+}
+
+.redColorText{
+    color: red;
+}
+.greenColorText{
+    color: green;
+}
+.whiteColorText{
+    color: #ffffff;
+}
+
+.rightContent{
+    border:1px solid #c7c7c7;
+}
+
+.DivLogo{
+    float:left;
+}
+
+.welcome{
+    width: 100%;
+    min-height: 600px;
+    background-color: #F0FAFD;
+    text-align: center;
+}
+.welcomeContent{
+    padding-top: 200px;
+}
+
+.titleBar{
+    background-color:#74e1ff;
+    text-align:center;
+}
+
+.itemBlock{
+    background-color:#45a7fa;
+    border:1px solid #1984f8;
+}
+
+.formTable{
+    width: 100%;
+}
+.formTable td{
+    border: 1px solid #c7c7c7;
+}
+
+ul{
+    list-style:none;
+}
+.liMenu{
+    width:200px;
+    height:45px;
+    text-align:center;
+    vertical-align:middle;
+    font-size:16px;
+    background-image:url(Images/liMenu2.jpg);
+}
+.liMenuLink{
+    float:left;
+    padding-top:8px;
+    width:170px;
+    white-space:nowrap; 
+    overflow:hidden; 
+    text-overflow: ellipsis;
+}
+.liMenuIcon{
+    float:left;
+    padding-top:10px;
+    width:30px;
+    /*background-image:url(Images/liMenu1.jpg);*/
+}
+.subMenu{
+    padding-top:5px;
+    padding-left:20px;
+    display:none;
+    background-color:#e7f6fb;
+    /*border:1px solid red;*/
+}
+.subMenuLink{
+    float:left;
+    height:30px;
+    width:140px;
+    white-space:nowrap; 
+    overflow:hidden; 
+    text-overflow: ellipsis;
+    background-color:#e7f6fb;
+}
+.subMenuIcon{
+    float:left;
+    width:30px;
+    margin-left:10px;
+    background-color:#e7f6fb;
+    /*background-image:url(Images/liMenu1.jpg);*/
+}
+.subMenu2{
+    padding-top:5px;
+    padding-left:20px;
+    display:none;
+    background-color:#e7f6fb;
+    /*border:1px solid red;*/
+}
+.subMenuLink2{
+    height:30px;
+    width:140px;
+    white-space:nowrap; 
+    overflow:hidden; 
+    text-overflow: ellipsis;
+}
+.tableList{
+    width: 100%;
+    min-width: 800px;
+    background-color: #d9d9d9;
+    text-align: center;
+}
+.headerRow{
+    background-color: #31a0fe;
+    border-bottom: solid 1px #555555;
+    /*text-align: center;*/
+}
+.dashLine{
+    border-bottom: 1px dashed #428bca;
+}
+.solidLine{
+    border-bottom: 1px solid #cccccc;
+}
+.bgWhite{
+    background-color: #ffffff;
+}
+
+.operationArea{
+    text-align:center;
+    height: 40px;
+    padding: 10px;
+}
+
+.title {
+    height: 60px;
+    width: 100%;
+    text-align: center;
+}
+.title p {
+    line-height: 60px;
+    display: block;
+    margin-top: 0px;
+    text-align: center;
+    font-size: 24px;
+    font-family: "宋体";
+    font-weight: bold;
+    color: #000;
+    margin-bottom: 0px;
+}
+.topUserInfo{
+    color:#ffffff;
+    border-left:2px solid #3c56b7;
+    width:100px;
+    text-align:center;
+    vertical-align:middle;
+    float:left;
+}
+.popUpDiv{
+    display: none;
+    background-color: #b1f7fe;
+    z-index: 1010;
+    border: 1px  #333333 solid;
+    position: absolute;
+    overflow: auto;
+}
+.DivSearchShareholder{
+    padding:5px;
+    text-align:left;
+    width:300px;
+    height:200px;
+}
+.DivUserInfo{
+    padding:5px;
+    text-align:left;
+    width:80px;
+    height:35px;
+}
+.maskDiv{
+    display: none;
+    z-index: 1009;
+    position: absolute;
+    width:100%;
+    overflow:hidden;
+}
+
+.transparentControl{
+    background-color: transparent;
+    border: 0px;
+    /*border-bottom: solid 1px;*/
+}
+.alignRight{
+    text-align:right;
+}

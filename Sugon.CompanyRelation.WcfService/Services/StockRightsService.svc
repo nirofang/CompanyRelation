@@ -1,0 +1,1 @@
+﻿<%@ ServiceHost Language="C#" Debug="true" Service="Sugon.CompanyRelation.WcfService.Services.StockRightsService" CodeBehind="StockRightsService.svc.cs" %>

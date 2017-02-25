@@ -1,0 +1,105 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>中科曙光 - 控股参股公司管理系统</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+    <link href="~/Content/index.css" rel="stylesheet" type="text/css"  />
+    <script>
+        $(document).ready(function(e) {
+            $(".main").css("height", $(window).height() - 55 + "px");
+            $("._menu").css("padding-top", ($(window).height() - 430) / 2 + "px");
+	        //$("._tab").children(":first").css({"border-bottom-color":"#fff","background":"#fff"});
+			//$("._table1").show();
+	        //$("._tab").children().click(function(){
+		    //    $(this).css({"border-bottom-color":"#fff","background":"#fff"});
+		    //    $(this).siblings().css({"border-bottom-color":"#dcdcdc","background":"#f8f8f8"});
+		    //    if($(this).attr("id")=="jbxx"){
+			//        $("._table1").show();
+			//        $("._table1").siblings("._table").hide();
+			//        }else if($(this).attr("id")=="gd"){
+			//        $("._table2").show();
+			//        $("._table2").siblings("._table").hide();
+			//	        }else if($(this).attr("id")=="glf"){
+			//        $("._table3").show();
+			//        $("._table3").siblings("._table").hide();
+			//	}
+            //});
+
+            $("#LinkShowUserInfo").click(function () {
+                //$("#DivMask").css({ left: 0, top: 0, height: $(document).outerHeight() }).show();
+
+                var offSet = $(this).offset();
+                $("#DivUserInfo").css({ left: offSet.left, top: offSet.top + $(this).outerHeight() }).show(200);
+                $("#DivUserInfo").show();
+            });
+        });
+
+        function HideUserInfoDiv(isHide) {
+            if (document.activeElement.id != "LinkChangePwd") {
+                $("#DivUserInfo").hide();
+            }
+            else if (document.activeElement.id == "LinkChangePwd" && isHide) {
+                $("#DivUserInfo").hide();
+            }
+        }
+    </script>
+</head>
+<body>
+    <div class="header_bk"></div>
+    <div class="header">
+        <img src="~/Content/Images/line.png" style="margin-left:18px;" />
+        <span class="SystemName">控股参股公司管理系统</span>
+        <span class="TopLink TopLink1">
+            @Ajax.ActionLink("股权关系", "StockRights", "StockRights", null, new AjaxOptions() { UpdateTargetId = "contentDiv" })
+        </span>
+        <span class="TopLink TopLink2">
+            @Ajax.ActionLink("经营报表", "CompanyReport", "Report", null, new AjaxOptions() { UpdateTargetId = "contentDiv" })
+        </span>
+        <span style="float:right; font-size:13px; margin-right: 60px;color:#fff;">
+            <img src="~/Content/Images/icon-yonghu.png" style="margin-right: 3px;" />
+            <a id="LinkShowUserInfo" href="javascript:void(0)" onblur="HideUserInfoDiv(false)" style="margin-right:30px; color:#fff;">@Session["TrueName"]</a>
+            <img src="~/Content/Images/icon-sanjiao.png" style="margin-right: 20px;" />
+            <img src="~/Content/Images/icon-tuichu.png" style="margin-right: 3px;" />
+            @Html.ActionLink("退出", "LogOff", "Login", null, new { @class = "whiteColorText" })
+        </span>
+    </div>
+    <div id="contentDiv" class="main">
+        @RenderBody()
+    </div>
+    <div id="DivUserInfo" class="popUpDiv DivUserInfo">@Ajax.ActionLink("修改密码", "ChangePassword", "Login", null, new AjaxOptions() { UpdateTargetId = "contentDiv" }, new { @id = "LinkChangePwd", @onclick = "HideUserInfoDiv(true)" })
+    </div>
+
+    @*<div class="navbar-inverse navbar-fixed-top">
+        <div class="DivLogo"><img src="~/Content/Images/logo.png" /></div>
+        <div class="container topContainer">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <span class="navbar-brand">控股参股公司管理系统</span>
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li>@Ajax.ActionLink("股权关系", "StockRights", "StockRights", null, new AjaxOptions() { UpdateTargetId = "contentDiv" }, new { @style = "color:#000000;" })</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div id="contentDiv" class="body-content">
+        @RenderBody()
+    </div>
+    <div class="FooterDiv">
+        <hr />
+        <p>&copy; 2017 - 中科曙光</p>
+    </div>*@
+    <div id="DivMask" class="maskDiv"></div>
+</body>
+</html>

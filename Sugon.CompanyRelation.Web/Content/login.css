@@ -1,0 +1,54 @@
+﻿@charset "utf-8";
+/* CSS Document */
+*{
+	padding:0;
+	margin:0;
+	}
+body{
+	background:#5EB0FA;
+	background-size:100%;
+	}
+._main{
+	z-index:1000;
+	width:877px;
+	margin:auto auto;
+	height:406px;
+	position:relative;
+	margin-top:-300px;
+	}
+._right{
+	background:url(Images/bg.png) no-repeat;
+	width:406px;
+	height:384px;
+	float:right;
+	font-size:24px;
+	color:#24b6f3;
+	}
+._right div{
+	position:relative;
+	width:73%;
+	margin:0 auto;
+	text-align:center;
+	margin-top:25px;
+	}
+._right div input{
+	padding-left: 40px;
+	width:245px;
+	height:40px;
+	border:1px solid #ccc;
+	border-radius:3px;
+	font-size:14px;
+	color:#ccc;
+	}
+._right div img{
+	position:absolute;
+    top: 10px;
+    left: 40px;
+	}
+._left{
+	margin-top: 25px;
+	width:384px;
+	float:left;
+	color:#666;
+	font-size:28px;
+	}
